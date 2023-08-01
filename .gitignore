@@ -1,0 +1,11 @@
+# Local .terraform directories
+**/.terraform/*
+**/Auxiliar/*
+**/scripts/*
+**/.infracost/*
+
+.terraform.lock.hcl
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
