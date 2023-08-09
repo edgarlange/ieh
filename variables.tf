@@ -17,6 +17,18 @@ variable "lange4_sub_id" {
   description = "VSE-MPN-LANGE_4 Subscription."
 }
 
+variable "client_id" {
+  type = string
+}
+
+variable "client_secret" {
+  type = string
+}
+
+variable "tenant_id" {
+  type = string
+}
+
 variable "vnet" {
   type        = list(string)
   default     = ["10.150.0.0/16"]
