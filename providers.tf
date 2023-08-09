@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "terraform-lange"
+
+    workspaces {
+      name = "ieh-azure"
+    }
+  }
   required_version = ">=0.12"
 
   required_providers {
