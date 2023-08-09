@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "terraform-lange"
+
+    workspaces {
+      name = "ieh-azure"
+    }
+  }
   required_version = ">=0.12"
 
   required_providers {
@@ -21,6 +28,10 @@ provider "azurerm" {
   alias = "LANGE_4"
   features {}
   subscription_id = var.lange4_sub_id
+  skip_provider_registration = "true"
+  client_id = var.client_id
+  client_secret = var.client_secret
+  tenant_id = var.tenant_id
 
 }
 
@@ -28,5 +39,9 @@ provider "azurerm" {
   alias = "LANGE_3"
   features {}
   subscription_id = var.lange3_sub_id
+  skip_provider_registration = "true"
+  client_id = var.client_id
+  client_secret = var.client_secret
+  tenant_id = var.tenant_id
 
 }
