@@ -1,5 +1,5 @@
 output "database_name" {
-  value = azurerm_mssql_server.ieh_db.fully_qualified_domain_name
+  value = azurerm_mssql_server.ieh_000.fully_qualified_domain_name
 }
 
 output "storage_name" {
