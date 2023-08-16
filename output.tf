@@ -7,7 +7,7 @@ output "database_name" {
 }
 
 output "storage_name" {
-  value = azurerm_storage_account.ieh_00.id.name
+  value = azurerm_storage_account.ieh_00.id
 }
 
 output "webapp_name" {
