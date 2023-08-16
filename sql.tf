@@ -1,6 +1,6 @@
 resource "azurerm_mssql_server" "ieh_000" {
   provider                      = azurerm.LANGE_4
-  name                          = "${var.prefix}-mssql-000"
+  name                          = "${var.prefix}mssql"
   location                      = azurerm_resource_group.ieh_rg.location
   resource_group_name           = azurerm_resource_group.ieh_rg.name
   version                       = "12.0"          # Ajusta la versión del servidor según tus necesidades
@@ -11,7 +11,7 @@ resource "azurerm_mssql_server" "ieh_000" {
 
 resource "azurerm_mssql_database" "ieh_db" {
   provider       = azurerm.LANGE_4
-  name           = "${var.prefix}-sdb-001"
+  name           = "${var.prefix}db001"
   server_id      = azurerm_mssql_server.ieh_000.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"

@@ -1,6 +1,6 @@
 variable "prefix" {
   type    = string
-  default = "ieh"
+  default = "ieh00"
 }
 
 variable "resource_group_location" {

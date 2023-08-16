@@ -1,6 +1,6 @@
 resource "azurerm_network_interface" "main" {
   provider            = azurerm.LANGE_3
-  name                = "${var.prefix}-nic"
+  name                = "${var.prefix}nic"
   location            = azurerm_resource_group.ieh_rg_l3.location
   resource_group_name = azurerm_resource_group.ieh_rg_l3.name
 
@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "main" {
 
 resource "azurerm_virtual_machine" "temp" {
   provider                         = azurerm.LANGE_3
-  name                             = "${var.prefix}-vm"
+  name                             = "${var.prefix}vm"
   location                         = azurerm_resource_group.ieh_rg_l3.location
   resource_group_name              = azurerm_resource_group.ieh_rg_l3.name
   network_interface_ids            = [azurerm_network_interface.main.id]
@@ -29,13 +29,13 @@ resource "azurerm_virtual_machine" "temp" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "${var.prefix}-osdisk"
+    name              = "${var.prefix}osdisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "${var.prefix}-test"
+    computer_name  = "${var.prefix}profile"
     admin_username = "testadmin"
     admin_password = "Password1234!"
   }
@@ -47,7 +47,7 @@ resource "azurerm_virtual_machine" "temp" {
 
 resource "azurerm_virtual_machine_extension" "userdata" {
   provider                  = azurerm.LANGE_3
-  name                 = "${var.prefix}-vm"
+  name                 = "${var.prefix}vm"
   virtual_machine_id   = azurerm_virtual_machine.temp.id
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"

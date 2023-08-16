@@ -1,14 +1,14 @@
 # Crear redes virtuales
 resource "azurerm_virtual_network" "vnet" {
   provider            = azurerm.LANGE_4
-  name                = "${var.prefix}-network"
+  name                = "${var.prefix}vnet"
   location            = azurerm_resource_group.ieh_rg.location
   resource_group_name = azurerm_resource_group.ieh_rg.name
   address_space       = var.vnet
 }
 resource "azurerm_virtual_network" "vnet_l3" {
   provider            = azurerm.LANGE_3
-  name                = "${var.prefix}-network"
+  name                = "${var.prefix}vnet"
   location            = azurerm_resource_group.ieh_rg_l3.location
   resource_group_name = azurerm_resource_group.ieh_rg_l3.name
   address_space       = var.vnet_l3
@@ -86,7 +86,7 @@ resource "azurerm_subnet" "vpn_subnet_l3" {
 # Crear grupos de seguridad
 resource "azurerm_network_security_group" "db" {
   provider            = azurerm.LANGE_4
-  name                = "${var.prefix}-db-sg"
+  name                = "${var.prefix}sql"
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.ieh_rg.name
   security_rule {
@@ -103,7 +103,7 @@ resource "azurerm_network_security_group" "db" {
 }
 resource "azurerm_network_security_group" "vm_l3" {
   provider            = azurerm.LANGE_3
-  name                = "${var.prefix}-vm-l3-sg"
+  name                = "${var.prefix}vm"
   location            = azurerm_resource_group.ieh_rg_l3.location
   resource_group_name = azurerm_resource_group.ieh_rg_l3.name
   security_rule {
@@ -120,7 +120,7 @@ resource "azurerm_network_security_group" "vm_l3" {
 }
 resource "azurerm_network_security_group" "web" {
   provider            = azurerm.LANGE_4
-  name                = "${var.prefix}-web-sg"
+  name                = "${var.prefix}web"
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.ieh_rg.name
   security_rule {

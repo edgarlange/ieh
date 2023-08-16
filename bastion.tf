@@ -1,7 +1,7 @@
 # Crear una IP pública para Bastion
 resource "azurerm_public_ip" "bastion" {
   provider            = azurerm.LANGE_3
-  name                = "${var.prefix}-bastion-public-ip"
+  name                = "${var.prefix}bastion-pip"
   location            = azurerm_resource_group.ieh_rg_l3.location
   resource_group_name = azurerm_resource_group.ieh_rg_l3.name
   allocation_method   = "Static"
@@ -10,7 +10,7 @@ resource "azurerm_public_ip" "bastion" {
 # Crear Bastion
 resource "azurerm_bastion_host" "bastion" {
   provider            = azurerm.LANGE_3
-  name                = "${var.prefix}-bastion"
+  name                = "${var.prefix}bastion"
   location            = azurerm_resource_group.ieh_rg_l3.location
   resource_group_name = azurerm_resource_group.ieh_rg_l3.name
 
