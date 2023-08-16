@@ -11,7 +11,7 @@ output "storage_name" {
 }
 
 output "webapp_name" {
-  value = azurerm_private_endpoint.web.network_interface
+  value = azurerm_windows_web_app.ieh_webapp.default_hostname
 }
 
 # output "tls_private_key" {
