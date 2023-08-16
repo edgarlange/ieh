@@ -1,7 +1,3 @@
-output "database_id" {
-  value = azurerm_mssql_database.ieh_db.id
-}
-
 output "database_name" {
   value = azurerm_mssql_database.ieh_db.default_hostname
 }
