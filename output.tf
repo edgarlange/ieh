@@ -3,15 +3,15 @@ output "database_id" {
 }
 
 output "database_name" {
-  value = azurerm_mssql_database.ieh_db.name
+  value = azurerm_mssql_database.ieh_db.public_dns
 }
 
 output "storage_name" {
-  value = azurerm_storage_account.ieh_00.name
+  value = azurerm_storage_account.ieh_00.id.public_dns
 }
 
 output "webapp_name" {
-  value = azurerm_windows_web_app.ieh_webapp.name
+  value = azurerm_windows_web_app.ieh_webapp.public_dns
 }
 
 # output "tls_private_key" {
