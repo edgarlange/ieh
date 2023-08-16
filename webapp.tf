@@ -1,6 +1,6 @@
 resource "azurerm_service_plan" "ieh_sp" {
   provider            = azurerm.LANGE_4
-  name                = "${var.prefix}-sp"
+  name                = "${var.prefix}sp"
   location            = var.resource_group_location
   resource_group_name = azurerm_resource_group.ieh_rg.name
   os_type             = "Windows"
@@ -9,7 +9,7 @@ resource "azurerm_service_plan" "ieh_sp" {
 
 resource "azurerm_windows_web_app" "ieh_webapp" {
   provider                      = azurerm.LANGE_4
-  name                          = "${var.prefix}-webapp"
+  name                          = "${var.prefix}web"
   resource_group_name           = azurerm_resource_group.ieh_rg.name
   location                      = var.resource_group_location
   service_plan_id               = azurerm_service_plan.ieh_sp.id

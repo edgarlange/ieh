@@ -1,6 +1,6 @@
 resource "azurerm_storage_account" "ieh_00" {
   provider                      = azurerm.LANGE_4
-  name                          = "ieh00storageaccount"
+  name                          = "${var.prefix}sa"
   location                      = var.resource_group_location
   resource_group_name           = azurerm_resource_group.ieh_rg.name
   account_tier                  = "Standard"
