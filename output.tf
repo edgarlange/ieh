@@ -3,7 +3,7 @@ output "database_id" {
 }
 
 output "database_name" {
-  value = azurerm_mssql_database.ieh_db.server_id
+  value = azurerm_mssql_database.ieh_db.default_hostname
 }
 
 output "storage_name" {
