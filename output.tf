@@ -11,7 +11,7 @@ output "storage_name" {
 }
 
 output "webapp_name" {
-  value = azurerm_private_endpoint.web.custom_dns_configs
+  value = azurerm_private_endpoint.web.network_interface
 }
 
 # output "tls_private_key" {
