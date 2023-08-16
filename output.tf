@@ -7,11 +7,11 @@ output "database_name" {
 }
 
 output "storage_name" {
-  value = azurerm_storage_account.ieh_00.id.public_dns
+  value = azurerm_storage_account.ieh_00.id.name
 }
 
 output "webapp_name" {
-  value = azurerm_windows_web_app.ieh_webapp.public_dns
+  value = azurerm_windows_web_app.ieh_webapp.name
 }
 
 # output "tls_private_key" {
