@@ -54,13 +54,13 @@ resource "azurerm_subnet" "powerbi_subnet" {
     }
   }
 }
-resource "azurerm_subnet" "fw_subnet" {
-  provider             = azurerm.LANGE_4
-  name                 = "AzureFirewallSubnet"
-  resource_group_name  = azurerm_resource_group.ieh_rg.name
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = var.fw_subnet
-}
+# resource "azurerm_subnet" "fw_subnet" {
+#   provider             = azurerm.LANGE_4
+#   name                 = "AzureFirewallSubnet"
+#   resource_group_name  = azurerm_resource_group.ieh_rg.name
+#   virtual_network_name = azurerm_virtual_network.vnet.name
+#   address_prefixes     = var.fw_subnet
+# }
 resource "azurerm_subnet" "ba_subnet" {
   provider             = azurerm.LANGE_3
   name                 = "AzureBastionSubnet"
