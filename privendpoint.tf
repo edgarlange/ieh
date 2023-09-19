@@ -37,21 +37,21 @@ resource "azurerm_private_endpoint" "db" {
   }
 }
 
-resource "azurerm_private_endpoint" "web" {
-  provider            = azurerm.LANGE_4
-  name                = "${var.prefix}web-endpoint"
-  location            = var.resource_group_location
-  resource_group_name = azurerm_resource_group.ieh_rg.name
-  subnet_id           = azurerm_subnet.db_subnet.id
+# resource "azurerm_private_endpoint" "web" {
+#   provider            = azurerm.LANGE_4
+#   name                = "${var.prefix}web-endpoint"
+#   location            = var.resource_group_location
+#   resource_group_name = azurerm_resource_group.ieh_rg.name
+#   subnet_id           = azurerm_subnet.db_subnet.id
 
-  private_service_connection {
-    name                           = "${var.prefix}web-privateserviceconnection"
-    private_connection_resource_id = azurerm_windows_web_app.ieh_webapp.id
-    subresource_names              = ["sites"]
-    is_manual_connection           = false
-  }
-  private_dns_zone_group {
-    name                 = "web-dns-zg"
-    private_dns_zone_ids = [azurerm_private_dns_zone.dns_zone_web.id]
-  }
-}
+#   private_service_connection {
+#     name                           = "${var.prefix}web-privateserviceconnection"
+#     private_connection_resource_id = azurerm_windows_web_app.ieh_webapp.id
+#     subresource_names              = ["sites"]
+#     is_manual_connection           = false
+#   }
+#   private_dns_zone_group {
+#     name                 = "web-dns-zg"
+#     private_dns_zone_ids = [azurerm_private_dns_zone.dns_zone_web.id]
+#   }
+# }
